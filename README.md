@@ -1,6 +1,6 @@
 # Chain-Reaction
 
-Chain Reaction Game built with [p5js](https://p5js.org)
+[Chain Reaction](https://play.google.com/store/apps/details?id=com.BuddyMattEnt.ChainReaction&hl=en) Game built with [p5js](https://p5js.org)
 
 ## Single Player Chain Reaction
 
