@@ -2,6 +2,8 @@ let grid;
 let colors = ["blue","green"] ;
 let color="blue";
 let i =1;
+
+let score = [];
 function setup(){
 	createCanvas(300,450);
 	background(0);
@@ -26,6 +28,16 @@ function mouseClicked() {
 	
 	if(color === box.color || box.color === ""){
 		logic(box);
+
+	score = [];
+	grid.boxes.forEach((box)=>{
+		if(box.color !== ""){
+			if(score[box.color] === undefined)
+				score[box.color]= 0;
+			score[box.color] += box.balls.length; 
+		}
+	})
+	console.log(score)
 	color=colors[i%colors.length];
 	i++;
 	}
@@ -37,6 +49,8 @@ function mouseClicked() {
 
 function logic(box){
 	let sideBoxes = [];
+	if(box === undefined)
+		return
 	if(box.isBoxFull()){
 		box.resetBox();
 		if(box.posX-1 >=0){
@@ -53,11 +67,9 @@ function logic(box){
 		}
 	}
 	else{
-		// if()
-		{
-			box.addBall(color);
+		
+		box.addBall(color);
 			
-		}
 	}
 	sideBoxes.forEach((box)=>{
 		logic(box,color);
