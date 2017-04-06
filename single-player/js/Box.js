@@ -17,14 +17,15 @@ Box.prototype.drawBall=function(color) {
 }
 
 Box.prototype.addBall = function (color) {
-	this.color = color;
+	
 	if(this.isBoxFull())
 	{
-		this.balls = [];
-		this.color = "";
+		this.resetBox();
 	}
-	else
+	else{
+		this.color = color;
 		this.balls.push(new Ball(this.x,this.y))
+		}
 }
 
 Box.prototype.drawBoxBorders = function(color) {
@@ -60,10 +61,14 @@ function maxBalls(posX, posY){
 	}else{
 		maxBalls = 3;
 	}
-	console.log(maxBalls, "max")
 	return maxBalls;
 }
 
 Box.prototype.isBoxFull = function(){
-	return this.full = this.balls.length >= this.maxBalls;
+	return this.full = this.balls.length === this.maxBalls;
+}
+
+Box.prototype.resetBox = function(){
+	this.balls = [];
+	this.color = "";
 }

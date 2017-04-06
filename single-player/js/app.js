@@ -22,8 +22,7 @@ function mouseClicked() {
 	}
 	let pos = Box.getPosition(mouseX,mouseY)
 	let box = grid.getBox(pos.x,pos.y)
-	
-	console.log(box.maxBalls)
+	console.log(box)
 	
 	if(color === box.color || box.color === ""){
 		logic(box);
@@ -39,7 +38,7 @@ function mouseClicked() {
 function logic(box){
 	let sideBoxes = [];
 	if(box.isBoxFull()){
-		box.balls = [];
+		box.resetBox();
 		if(box.posX-1 >=0){
 			sideBoxes.push(grid.getBox(box.posX-1,box.posY))
 		}
